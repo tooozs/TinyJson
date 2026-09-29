@@ -1,0 +1,19 @@
+## Visual Studio 缓存与用户个人配置
+.vs/
+*.user
+*.suo
+*.userosv
+*.sln.docstates
+
+## 编译输出文件
+Debug/
+Release/
+x64/
+x86/
+bin/
+obj/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
