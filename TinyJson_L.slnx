@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="TinyJson_L.vcxproj" />
+  <Project Path="TinyJson_L.vcxproj" Id="9647581e-6258-49e5-b051-68516ee1e54a" />
 </Solution>
