@@ -3,12 +3,6 @@
 #include <stdexcept>
 #include "json_element.h"
 
-//异常类
-class TypeException : public std::runtime_error {
-public:
-	explicit TypeException(const std::string& msg) : std::runtime_error(msg) {}
-};
-
 using value_t = std::variant <
 	std::nullptr_t,
 	bool,
@@ -52,34 +46,34 @@ public:
 	bool is_number() const noexcept { return is_int() || is_double(); } //通用数字判断
 	//类型获取
 	bool as_bool() const {
-		if (is_bool)
+		if (is_bool())
 			return as_t<bool>();
 		throw TypeException("Value is not a boolean");
 	}
 	bool as_int() const {
-		if (is_int)
+		if (is_int())
 			return as_t<int>();
 		throw TypeException("Value is not an integer");
 	}
 	double as_double() const {
-		if (is_double)
+		if (is_double())
 			return as_t<double>();
 		throw TypeException("Value is not a double");
 	}
 	string_t as_string() const {
-		if (is_string)
+		if (is_string())
 			return as_t<string_t>();
 		throw TypeException("Value is not a string");
 	}
 	//序列化
 	std::string serialize() const noexcept override {
-		if (is_bool)
+		if (is_bool())
 			return as_bool() ? "true" : "false";
-		else if(is_int)
+		else if(is_int())
 			return std::to_string(as_int());
-		else if (is_double)
+		else if (is_double())
 			return std::to_string(as_double());
-		else if (is_string)
+		else if (is_string())
 			return "\"" + as_string() + "\"";
 		else
 			return "null";

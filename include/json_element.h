@@ -1,7 +1,12 @@
 #pragma once
 #include <string>
+#include "error.h"
 
 using string_t = std::string;
+
+class Value;
+class Object;
+class Array;
 
 class Element {
 public:
@@ -17,7 +22,7 @@ public:
 	//通用操作
 	virtual Element* copy() const = 0;
 	virtual std::string serialize() const noexcept { return ""; }
-	virtual void clear();
+	virtual void clear() {};
 	//比较操作
 	virtual bool operator==(const Element& other) const noexcept { return false; }
 	virtual bool operator!=(const Element& other) const noexcept { return true; }
